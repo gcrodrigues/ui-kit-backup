@@ -7,6 +7,7 @@ import postcss from 'rollup-plugin-postcss';
 import dts from 'rollup-plugin-dts';
 
 import packageJson from './package.json' assert { type: "json" };
+import autoprefixer from 'autoprefixer'
 
 export default [
     {
@@ -24,12 +25,17 @@ export default [
                 sourcemap: true
             }
         ],
+        external: ['react-dom'],
         plugins: [
             external(),
             resolve(),
             commonjs(),
             typescript({ tsconfig: './tsconfig.json' }),
-            postcss(),
+            postcss({
+                plugins: [
+                    autoprefixer()
+                ],
+            }),
             terser()
         ]
     },
