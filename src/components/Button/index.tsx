@@ -3,11 +3,16 @@ import  './styles.css'
 import classNames from "classnames";
 import { ButtonProps, ButtonVariants } from "./types";
 
-export default function Button({ children, variant = ButtonVariants['Default'], className, onClick }: ButtonProps) {
+export default function Button({ 
+  children, 
+  className, 
+  disabled, 
+  variant = ButtonVariants['Default'], 
+  onClick 
+}: ButtonProps) {
   const buttonClassName = classNames({
     'button': true,
 
-    //Button variants classes
     'button--primary': variant === ButtonVariants['Primary'],
     'button--secondary': variant === ButtonVariants['Secondary'],
     'button--success': variant === ButtonVariants[ 'Success'],
@@ -15,11 +20,12 @@ export default function Button({ children, variant = ButtonVariants['Default'], 
     'button--info': variant === ButtonVariants['Info'],
     'button--ghost': variant === ButtonVariants['Ghost'],
     'button--default': variant === ButtonVariants[ 'Default'],
+    'button--disabled': disabled,
 
     [className!]: className
   });
 
   return(
-    <button className={buttonClassName} onClick={onClick}>{children}</button>
+    <button disabled={disabled} className={buttonClassName} onClick={onClick}>{children}</button>
   )
 }

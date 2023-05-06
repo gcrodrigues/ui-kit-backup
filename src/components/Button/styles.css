@@ -16,7 +16,7 @@
   background-color: transparent;
 }
 
-.button--default:hover {
+.button--default:hover:not(.button--disabled) {
   background-color: var(--transparent-hover);
 }
 
@@ -25,7 +25,7 @@
   color: var(--body-text-light);
 }
 
-.button--primary:hover {
+.button--primary:hover:not(.button--disabled) {
   background-color: var(--primary-hover);
 }
 
@@ -34,7 +34,7 @@
   color: var(--body-text-dark);
 }
 
-.button--secondary:hover {
+.button--secondary:hover:not(.button--disabled) {
   background-color: var(--secondary-hover);
 }
 
@@ -43,7 +43,7 @@
   color: var(--body-text-light);
 }
 
-.button--success:hover {
+.button--success:hover:not(.button--disabled) {
   background-color: var(--success-hover);
 }
 
@@ -52,7 +52,7 @@
   color: var(--body-text-light);
 }
 
-.button--warning:hover {
+.button--warning:hover:not(.button--disabled) {
   background-color: var(--warning-hover);
 }
 
@@ -61,7 +61,7 @@
   color: var(--body-text-light);
 }
 
-.button--info:hover {
+.button--info:hover:not(.button--disabled) {
   background-color: var(--info-hover);
 }
 
@@ -72,7 +72,12 @@
   color: var(--ghost-text);
 }
 
-.button--ghost:hover {
+.button--ghost:hover:not(.button--disabled) {
   border-color: var(--ghost-border-hover);
   color: var(--ghost-text-hover);
+}
+
+.button--disabled {
+  opacity: 0.5;
+  cursor: default;
 }
