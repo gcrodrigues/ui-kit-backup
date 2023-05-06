@@ -11,51 +11,17 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Default: Story = {
+export const Variants: Story = {
   args: {
-    children: 'Button',
+    children: 'Choose the variation below',
     variant: ButtonVariants.Default
   }
 };
 
-export const Primary: Story = {
+export const Disabled: Story = {
   args: {
-    children: 'Button',
-    variant: ButtonVariants.Primary
-  }
-};
-
-export const Secondary: Story = {
-  args: {
-    children: 'Button',
-    variant: ButtonVariants.Secondary
-  }
-};
-
-export const Success: Story = {
-  args: {
-    children: 'Button',
-    variant: ButtonVariants.Success
-  }
-};
-
-export const Warning: Story = {
-  args: {
-    children: 'Button',
-    variant: ButtonVariants.Warning
-  }
-};
-
-export const Info: Story = {
-  args: {
-    children: 'Button',
-    variant: ButtonVariants.Info
-  }
-};
-
-export const Ghost: Story = {
-  args: {
-    children: 'Button',
-    variant: ButtonVariants.Ghost
+    children: 'Button disabled',
+    variant: ButtonVariants.Primary,
+    disabled: true
   }
 };
