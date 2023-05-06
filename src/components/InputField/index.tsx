@@ -7,25 +7,29 @@ import Tooltip from '../Tooltip';
 import classNames from 'classnames';
 
 export default function InputField(props: InputFieldProps) {
-  const { className, error, icon, label, name, type, helper, onFocus } = props
+  const { className, disabled = false, error, icon, label, name, type, helper, onFocus } = props
   const [isVisible, setIsVisible] = useState(false)
-
   const inputType = type === "password" ? (isVisible ? "text" : "password") : type;
 
   const toggleShowPassword = () => {
     setIsVisible(!isVisible);
   };
 
-  const inputClassnames = classNames({
-    'uk-input': true,
+  const headerClassNames = classNames({
+    "uk-header": true,
+    "uk-header--marginBottom": label || helper
+  })
 
+  const inputClassNames = classNames({
+    'uk-input': true,
+    'uk-input--disabled': disabled,
     'uk-input--error': error,
     [className!]: className
   });
 
   return(
     <div className='uk-container'>
-        <div className="uk-header">
+        <div className={headerClassNames}>
           {label && (
             <FormLabel className='uk-header__label' name={name}>{label}</FormLabel>
           )}
@@ -35,15 +39,15 @@ export default function InputField(props: InputFieldProps) {
             </Tooltip>
           )}
         </div>
-      <div className={inputClassnames}>
+      <div className={inputClassNames}>
         {icon && (
           <div className='uk-input__left__icon'>
             {icon}
           </div>
         )}
-        <FormInput {...props} onFocus={onFocus} type={inputType} className='uk-input__field'/>
+        <FormInput {...props} onFocus={onFocus} type={inputType} className='uk-input__field' disabled={disabled} />
           {type === 'password' && (
-            <button className='uk-input__button' onClick={toggleShowPassword}>
+            <button className='uk-input__button' onClick={toggleShowPassword} disabled={disabled} >
               {isVisible ? <EyeOff size={18}/> : <Eye size={18}/>}
             </button>
           )}

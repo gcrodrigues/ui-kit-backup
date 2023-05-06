@@ -69,5 +69,14 @@ export const WithLeftIcon: Story = {
     name: 'text',
     placeholder: 'example@email.com',
     icon: <User size={18}/>,
+    disabled: false
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    name: 'text',
+    placeholder: 'example@email.com',
+    disabled:true
   },
 };
