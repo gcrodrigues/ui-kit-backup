@@ -29,9 +29,11 @@
 
   --transparent-hover: rgba(144, 161, 174, 0.053);
 
-  --input-border: rgb(229, 229, 229);
+  --input-border: rgb(204, 204, 204);
+  --input-border-disabled: rgb(230, 230, 230);
   --input-background-color: rgb(255, 255, 255);
-  --input-placeholder-color: rgb(153, 153, 153);
+  --input-placeholder-color: rgb(170, 170, 170);
+  --input-placeholder-disabled-color: rgb(206, 206, 206);
   --input-icon: rgb(204, 204, 204);
 
   --background-primary: rgb(255, 255, 255);
