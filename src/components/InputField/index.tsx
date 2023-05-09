@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import { FormInput, FormLabel } from '@ariakit/react';
 import { InputFieldProps } from './types';
 import { Info, Eye, EyeOff } from 'react-feather'
@@ -15,17 +15,21 @@ export default function InputField(props: InputFieldProps) {
     setIsVisible(!isVisible);
   };
 
-  const headerClassNames = classNames({
-    "uk-header": true,
-    "uk-header--marginBottom": label || helper
-  })
+  const headerClassNames = useMemo(() => classNames(
+    {
+      "uk-header--marginBottom": label || helper
+    },
+    "uk-header"
+  ), [label, helper]);
 
-  const inputClassNames = classNames({
-    'uk-input': true,
-    'uk-input--disabled': disabled,
-    'uk-input--error': error,
-    [className!]: className
-  });
+  const inputClassNames = useMemo(() => classNames(
+    {
+      'uk-input--disabled': disabled,
+      'uk-input--error': error,
+    }, 
+    'uk-input',  
+    className
+  ), [disabled, error])
 
   return(
     <div className='uk-container'>

@@ -1,4 +1,4 @@
-.button {
+.uk-button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -12,72 +12,72 @@
   font-family: var(--font-roboto);
 }
 
-.button--default {
+.uk-button--default {
   background-color: transparent;
 }
 
-.button--default:hover:not(.button--disabled) {
+.uk-button--default:hover:not(.uk-button--disabled) {
   background-color: var(--transparent-hover);
 }
 
-.button--primary {
+.uk-button--primary {
   background-color: var(--primary);
   color: var(--body-text-light);
 }
 
-.button--primary:hover:not(.button--disabled) {
+.uk-button--primary:hover:not(.uk-button--disabled) {
   background-color: var(--primary-hover);
 }
 
-.button--secondary {
+.uk-button--secondary {
   background-color: var(--secondary);
   color: var(--body-text-dark);
 }
 
-.button--secondary:hover:not(.button--disabled) {
+.uk-button--secondary:hover:not(.uk-button--disabled) {
   background-color: var(--secondary-hover);
 }
 
-.button--success {
+.uk-button--success {
   background-color: var(--success);
   color: var(--body-text-light);
 }
 
-.button--success:hover:not(.button--disabled) {
+.uk-button--success:hover:not(.uk-button--disabled) {
   background-color: var(--success-hover);
 }
 
-.button--warning {
+.uk-button--warning {
   background-color: var(--warning);
   color: var(--body-text-light);
 }
 
-.button--warning:hover:not(.button--disabled) {
+.uk-button--warning:hover:not(.uk-button--disabled) {
   background-color: var(--warning-hover);
 }
 
-.button--info {
+.uk-button--info {
   background-color: var(--info);
   color: var(--body-text-light);
 }
 
-.button--info:hover:not(.button--disabled) {
+.uk-button--info:hover:not(.uk-button--disabled) {
   background-color: var(--info-hover);
 }
 
 
-.button--ghost {
+.uk-button--ghost {
   background-color: transparent;
   border: 1px solid var(--ghost-border);
   color: var(--ghost-text);
 }
 
-.button--ghost:hover:not(.button--disabled) {
+.uk-button--ghost:hover:not(.uk-button--disabled) {
   border-color: var(--ghost-border-hover);
   color: var(--ghost-text-hover);
 }
 
-.button--disabled {
+.uk-button--disabled {
   opacity: 0.5;
   cursor: default;
 }
