@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react'
+import React, { useCallback, useEffect, useMemo } from 'react'
 import { 
   SelectLabel,
   SelectPopover, 
@@ -31,13 +31,13 @@ export default function Select({
   helper,
   inputSearch,
   items,
-  keyValue,
   label,
   matchKeys,
-  onChange = () => {},
+  onChange, 
   placeholder,
   renderValue,
-  rightIcon
+  rightIcon,
+  value
  }: SelectProps) {
   const combobox = useComboboxStore({ resetValueOnHide: true });
   const comboboxValue = combobox.useState("value")
@@ -47,26 +47,40 @@ export default function Select({
     defaultValue:  defaultValue,
     sameWidth: true,
     gutter: 4,
+    value: value,
+    setValue: onChange
   });
   const inputValue = select.useState("value")
   const mounted = select.useState("mounted");
 
-  const selectClassNames = classNames({ 
-    'uk-select': true, 
-    'uk-select--error': error,
-    'uk-select--borderPrimary': !inputSearch,
-    'uk-select--alignRight': !placeholder && !inputValue || !placeholder && Array.isArray(defaultValue)
-  })
+  const selectClassNames = useMemo(() => classNames(
+    { 
+      'uk-select--error': error,
+      'uk-select--borderPrimary': !inputSearch,
+      'uk-select--alignRight': !placeholder && !inputValue || !placeholder && Array.isArray(defaultValue)
+    },
+    'uk-select'
+  ), [
+    error, 
+    inputSearch, 
+    placeholder,
+    defaultValue, 
+    inputValue
+  ])
 
-  const selectHeaderClassNames = classNames({
-    "uk-select__header": true,
-    "uk-select__header--marginBottom": label || helper
-  })
+  const selectHeaderClassNames = useMemo(() => classNames(
+    {
+      "uk-select__header--marginBottom": label || helper
+    },
+    "uk-select__header"
+  ), [label, helper])
 
-  const selectPlaceholderClassNames = classNames({
-    'uk-select__placeholder': true,
-    'uk-select__placeholder--disabled': disabled
-  })
+  const selectPlaceholderClassNames = useMemo(() => classNames(
+    {
+      'uk-select__placeholder--disabled': disabled
+    },
+    'uk-select__placeholder'
+  ), [disabled])
   
   const matches = useMemo(() => { 
     return matchSorter(items, comboboxValue, {
@@ -76,21 +90,24 @@ export default function Select({
     });
   }, [comboboxValue]);  
 
-  const handleClick = (item: string) => {
-    const selectedItems = items.filter(value => {
-      return inputValue.includes(value[keyValue])
-    })
-    select.setValue(selectedItems.filter((value) => value[keyValue] !== item).map(value => value[keyValue]))
-    onChange([])
-  }
-
-  const handleClearInputValue = () => {
+  const handleClick = useCallback((selectedItem: string) => {
+    if (Array.isArray(value)) {
+      select.setValue(value.filter(item => selectedItem !== item))
+      return
+    }   
+    select.setValue(selectedItem)
+  }, [value])
+  
+  const handleClearInputValue = useCallback(() => {
     select.setValue([])
-    onChange([])
-  }
+  }, [])
 
-  const handleShowSelecItems = (items: any[]) => {
-    return items.map(item => {
+  useEffect(() => {
+    select.render()
+  }, [inputValue])
+
+  const handleShowSelecItems = useCallback((items: any[]) => 
+    items.map(item => {
       const renderedValue = renderValue ? item[renderValue] : item
       return (
         <>
@@ -104,12 +121,7 @@ export default function Select({
           )}
         </>
       )
-    })
-  }
-
-  useEffect(() => {
-    select.render()
-  }, [inputValue])
+    }), [items, renderValue])
 
   return(
     <div className='uk-container'>
@@ -128,7 +140,9 @@ export default function Select({
           <button onClick={handleClearInputValue} className='uk-clear__button'>
             {clearInputButtonText}
           </button>
-          {Array.from(inputValue).map((value) => (<Tag onClick={() => handleClick(value)}>{value}</Tag>))}
+          {value && Array.isArray(value) && value.map((inpuValue) => (
+            <Tag hasButton key={inpuValue} onClick={() => handleClick(inpuValue)}>{inpuValue}</Tag>
+          ))}
         </div>
       )}
 
@@ -148,7 +162,6 @@ export default function Select({
                 <div className='uk-popover__combobox'>
                   <Combobox
                     store={combobox}
-                    autoFocus
                     placeholder={comboboxPlaceholder}
                     className="uk-popover__combobox__input"
                   />

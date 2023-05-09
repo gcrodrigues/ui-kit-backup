@@ -10,11 +10,11 @@ export interface SelectProps {
   helper: string
   inputSearch?: boolean
   items: any[]
-  keyValue: string
   label?: string
   matchKeys?: string[]
-  onChange?: (selectedItems: any[]) => void
+  onChange?: (item: string[] | string) => void
   placeholder?: string
   renderValue: string
   rightIcon?: ReactNode
+  value: string | string[] | undefined
 }
