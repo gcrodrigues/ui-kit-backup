@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react'
 
 export interface TooltipProps {
-  as?: any
-  message?: string
-  children: ReactNode
-  portal?: boolean
+	as?: any
+	message?: string
+	children: ReactNode
+	portal?: boolean
 }

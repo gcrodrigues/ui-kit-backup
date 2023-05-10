@@ -1,29 +1,29 @@
 .uk-tag {
-  height: 20px;
-  display: flex;
-  align-items: center;
-  background-color: rgba(0, 123, 255, 0.2);
-  border: 1px solid var(--primary);
-  padding: 12px 6px;
-  border-radius: .25em;
-  display: flex;
-  gap: 4px;
-  cursor: pointer;
-  color: var(--body-text-dark);
+	height: 20px;
+	display: flex;
+	align-items: center;
+	background-color: rgba(0, 123, 255, 0.2);
+	border: 1px solid var(--primary);
+	padding: 12px 6px;
+	border-radius: 0.25em;
+	display: flex;
+	gap: 4px;
+	cursor: pointer;
+	color: var(--body-text-dark);
 }
 
 .uk-tag--noButton {
-  cursor: default;
+	cursor: default;
 }
 
 .uk-tag__text {
-  margin: 0;
-  font-size: 14px;
+	margin: 0;
+	font-size: 14px;
 }
 
 .uk-tag__button {
-  font-size: 0;
-  padding: 0;
-  border: none;
-  background-color: transparent;
+	font-size: 0;
+	padding: 0;
+	border: none;
+	background-color: transparent;
 }

@@ -1,43 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap');
 
 :root {
-  --font-open-sans: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --font-roboto: 'Roboto', Helvetica, system-ui, -apple-system, BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+	--font-open-sans: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	--font-roboto: 'Roboto', Helvetica, system-ui, -apple-system,
+		BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 
-  --primary: rgb(0, 123, 255);
-  --primary-hover: rgb(0, 105, 217);
+	--primary: rgb(0, 123, 255);
+	--primary-hover: rgb(0, 105, 217);
 
-  --secondary: #D8D8D8;
-  --secondary-hover: #cbcaca;
+	--secondary: #d8d8d8;
+	--secondary-hover: #cbcaca;
 
-  --success: rgb(40, 167, 69);
-  --success-hover: rgb(33, 136, 56);
-  
-  --warning: rgb(220, 53, 69);
-  --warning-hover: rgb(200, 35, 51);
+	--success: rgb(40, 167, 69);
+	--success-hover: rgb(33, 136, 56);
 
-  --info: rgb(23, 162, 184);
-  --info-hover: rgb(19, 132, 150);
-  
-  --ghost-border: rgb(108, 117, 125);
-  --ghost-text: rgb(108, 117, 125);
-  --ghost-border-hover: rgb(52, 58, 64);
-  --ghost-text-hover: rgb(52, 58, 64);
+	--warning: rgb(220, 53, 69);
+	--warning-hover: rgb(200, 35, 51);
 
-  --body-text-dark: rgb(51, 51, 51);
-  --body-text-light: rgb(240, 240, 240);
+	--info: rgb(23, 162, 184);
+	--info-hover: rgb(19, 132, 150);
 
-  --transparent-hover: rgba(144, 161, 174, 0.053);
+	--ghost-border: rgb(108, 117, 125);
+	--ghost-text: rgb(108, 117, 125);
+	--ghost-border-hover: rgb(52, 58, 64);
+	--ghost-text-hover: rgb(52, 58, 64);
 
-  --input-border: rgb(204, 204, 204);
-  --input-border-disabled: rgb(230, 230, 230);
-  --input-background-color: rgb(255, 255, 255);
-  --input-placeholder-color: rgb(170, 170, 170);
-  --input-placeholder-disabled-color: rgb(206, 206, 206);
-  --input-icon: rgb(204, 204, 204);
+	--body-text-dark: rgb(51, 51, 51);
+	--body-text-light: rgb(240, 240, 240);
 
-  --background-primary: rgb(255, 255, 255);
-  --background-secondary: rgb(249, 250, 251);
+	--transparent-hover: rgba(144, 161, 174, 0.053);
 
-  --border: rgb(229, 231, 235);
+	--input-border: rgb(204, 204, 204);
+	--input-border-disabled: rgb(230, 230, 230);
+	--input-background-color: rgb(255, 255, 255);
+	--input-placeholder-color: rgb(170, 170, 170);
+	--input-placeholder-disabled-color: rgb(206, 206, 206);
+	--input-icon: rgb(204, 204, 204);
+
+	--background-primary: rgb(255, 255, 255);
+	--background-secondary: rgb(249, 250, 251);
+
+	--border: rgb(229, 231, 235);
 }
